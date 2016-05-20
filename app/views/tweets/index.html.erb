@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<body>
+	<table class="table" BGCOLOR= "#ffffff" border="1px" >	
+		<%if current_user%>
+			<tr>
+				<td BGCOLOR="0091ff">&nbsp;&nbspCorreo&nbsp;&nbsp</th>
+				<td BGCOLOR="0091ff">&nbsp;&nbspTitulo&nbsp;&nbsp</th>
+				<td BGCOLOR="0091ff">&nbsp;&nbspMesaje&nbsp;&nbsp</th>      
+			</tr>
+			<%Tweet.where(:correo=>"#{current_user.email}").each do |tweet| %>
+			<tr>
+				<td BGCOLOR="0091ff">&nbsp;&nbsp<%= tweet.correo %>&nbsp;&nbsp</td>
+				<td BGCOLOR="0091ff">&nbsp;&nbsp<%= tweet.string %>&nbsp;&nbsp</td>
+				<td BGCOLOR="0091ff">&nbsp;&nbsp<%= tweet.mesaje %>&nbsp;&nbsp</td>
+				<td BGCOLOR="0091ff">&nbsp;&nbsp<%= link_to 'Ver', tweet, style: 'color:#FFFFFF;' %>&nbsp;&nbsp</td>
+				<td BGCOLOR="0091ff">&nbsp;&nbsp<%= link_to 'Editar', edit_tweet_path(tweet), style: 'color:#FFFFFF;' %>&nbsp;&nbsp</td>
+				<td BGCOLOR="0091ff">&nbsp;&nbsp<%= link_to 'Eliminar', tweet, method: :delete, data: { confirm: 'Are you sure?' }, style: 'color:#FFFFFF;' %>&nbsp;&nbsp</td>		
+			</tr>		
+			<%end%> 			
+			<%= link_to 'Nuevo Tweet', new_tweet_path %>		  
+		<%end%>	
+	</table>
+</body>
+
+

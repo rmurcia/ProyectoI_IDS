@@ -1,0 +1,27 @@
+<h1>mostrando</h1>
+
+<p id="TweetUser"><%= TweetUser %></p>
+
+
+<body>
+<table BGCOLOR= "#ffffff" border="1px">
+    <tr>
+	<td BGCOLOR="0091ff">&nbsp;&nbspCorreo&nbsp;&nbsp</th>
+    	<td BGCOLOR="0091ff">&nbsp;&nbspTitulo&nbsp;&nbsp</th>
+    	<td BGCOLOR="0091ff">&nbsp;&nbspMesaje&nbsp;&nbsp</th>      
+    </tr>
+ 
+    <% @tweets.each do |tweet| %>
+      <tr>
+	<%Tweet.where(:correo=>"richard@hotmail.com").each do |t| %>
+	<td BGCOLOR="0091ff">&nbsp;&nbsp<%=t.mesaje, t,string%>&nbsp;&nbsp</td>
+	<%end%>
+
+      </tr>
+    <% end %>
+ 
+	
+</table>
+</body>
+
+<br>
